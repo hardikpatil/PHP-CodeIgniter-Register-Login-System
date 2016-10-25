@@ -35,7 +35,7 @@
       echo form_close();
       ?>
       
-      <a href='<?php echo site_url("main/signup");?>'>Sign Up</a>
-      
+    <a href='<?php echo site_url("main/signup");?>'>Sign Up</a>
+   
   </body>
 </html>

@@ -14,8 +14,8 @@
   <body>
       <div id="container"> 
         
-          <h1>Your Account has been created!</h1>
-         
+          <h1>Your Account has been created!</h1><br><br>
+          <h3><a href='<?php echo site_url("main/login");?>'>Now you may login into your account</a></h3>
           
       </div>
       

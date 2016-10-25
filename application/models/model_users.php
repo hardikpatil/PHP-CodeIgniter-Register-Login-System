@@ -17,19 +17,30 @@ class Model_users extends CI_Model{
     }
     
     public function add_user(){
-        $new_members = array(    
-            'first_name' => $this->input->post('first_name'),
-            'last_name' => $this->input->post('last_name'),
-            'username' => $this->input->post('username'),
-            'email' => $this->input->post('email'),
-            'password' => md5($this->input->post('password'))
+       
+        $first_name = $this->input->post('first_name');
+        $last_name = $this->input->post('last_name');
+        $username = $this->input->post('username');
+        $email = $this->input->post('email');
+        $password = md5($this->input->post('password'));
+
+        $data = array(
+                'first_name' => $this->db->escape($first_name),
+                'last_name' => $this->db->escape($last_name),
+                'username' => $this->db->escape($username),
+                'email' => $this->db->escape($email),
+                'password' => $this->db->escape($password)
         );
-        
-        $insert = $this->db->insert('users', $new_members);
-        return $insert;
-     
+
+        if(!$this->db->insert('users', $data))
+        {
+            return FALSE;
+        }
+        else
+        {
+            return TRUE;
+        }
     }
- 
 }
 
 ?>
