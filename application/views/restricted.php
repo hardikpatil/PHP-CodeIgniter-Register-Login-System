@@ -14,19 +14,8 @@
   <body>
       <div id="container"> 
         
-        <h1>Members Page</h1>
-        <?php 
-        echo "<pre>";
-        print_r($this->session->all_userdata()); 
-        echo "</pre>";
-
-        ?>
-        <br>
-        
-        <a href='<?php echo site_url("main/logout");?>'>Log Out</a>  
-         
-          
-      </div>
+          <h1>Hey Suckass you do not access to this page!</h1>
+          <a href='<?php echo site_url("main/login");?>'>Back To Login Page</a>
       
   </body>
 </html>
