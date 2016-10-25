@@ -20,7 +20,7 @@
       echo validation_errors();
       
       echo "<p>Email ID:";
-      echo form_input('email');
+      echo form_input('email',$this->input->post('email'));
       echo "</p>";
       
       echo "<p>Password:";

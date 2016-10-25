@@ -48,14 +48,34 @@ class Main extends CI_Controller{
         }
         else{
             $this->load->view('login');
-        }
-      
-        
+        }  
     }
     
+    public function signup_validation(){
+        $this->load->helper('security');
+        $this->load->library('form_validation');
+        
+        $this->form_validation->set_rules('first_name','First Name','required');
+        $this->form_validation->set_rules('last_name','Last Name','required');
+        $this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('username','Username','required|trim|is_unique[users.username]');
+        $this->form_validation->set_rules('password','Password','required|trim');
+        $this->form_validation->set_rules('cpassword','Confirm Password','required|trim|matches[password]');
+        
+        $this->form_validation->set_message('is_unique','That email address already exist!');
+        
+        if($this->form_validation->run()){
+            echo 'Validation Success';
+        }
+        else {
+            echo 'Validation Failed';
+            $this->load->view('signup');
+        }
+    }
+
     public function validate_credentials(){
         $this->load->model('model_users');
-        
+
         if($this->model_users->can_log_in()){
             return TRUE;
         }

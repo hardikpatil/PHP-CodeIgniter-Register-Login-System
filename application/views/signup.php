@@ -32,14 +32,14 @@
       echo "</p>";
       
       echo "<p>Email ID:";
-      echo form_input('email');
+      echo form_input('email',$this->input->post('email'));
       echo "</p>";
       
       echo "<p>Password:";
       echo form_password('password');
       echo "</p>";
       
-      echo "<p>Password:";
+      echo "<p>Confirm Password:";
       echo form_password('cpassword');
       echo "</p>";
       
