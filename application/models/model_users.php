@@ -25,11 +25,11 @@ class Model_users extends CI_Model{
         $password = md5($this->input->post('password'));
 
         $data = array(
-                'first_name' => $this->db->escape($first_name),
-                'last_name' => $this->db->escape($last_name),
-                'username' => $this->db->escape($username),
-                'email' => $this->db->escape($email),
-                'password' => $this->db->escape($password)
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'username' => $username,
+                'email' => $email,
+                'password' => $password
         );
 
         if(!$this->db->insert('users', $data))
