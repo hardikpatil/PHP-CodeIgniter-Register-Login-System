@@ -1,6 +1,6 @@
 <?php
 
-class model_users extends CI_Model{
+class Model_users extends CI_Model{
     
     public function can_log_in(){
         
@@ -13,15 +13,23 @@ class model_users extends CI_Model{
         }
         else {
             return FALSE;
-        }
-        
-        
+        }  
     }
     
-    
-    
-    
-    
+    public function add_user(){
+        $new_members = array(    
+            'first_name' => $this->input->post('first_name'),
+            'last_name' => $this->input->post('last_name'),
+            'username' => $this->input->post('username'),
+            'email' => $this->input->post('email'),
+            'password' => md5($this->input->post('password'))
+        );
+        
+        $insert = $this->db->insert('users', $new_members);
+        return $insert;
+     
+    }
+ 
 }
 
 ?>

@@ -65,12 +65,21 @@ class Main extends CI_Controller{
         $this->form_validation->set_message('is_unique','That email address already exist!');
         
         if($this->form_validation->run()){
-            echo 'Validation Success';
+            
+            //echo 'Validation Successful.';
+            redirect('main/add_user');
         }
         else {
-            echo 'Validation Failed';
+           //Validation failed
             $this->load->view('signup');
         }
+    }
+    
+    public function add_user(){
+        $this->load->model('model_users');
+        $this->model_users->add_user();
+        $this->load->view('success');
+        
     }
 
     public function validate_credentials(){
